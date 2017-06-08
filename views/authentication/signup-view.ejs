@@ -1,0 +1,39 @@
+<br>
+<div class="col-sm-12" style="float: none; text-align: center;">
+
+    <div class="form-box" style="width: 480px; margin: auto;">
+        <div class="form-top">
+            <div class="form-top-left">
+                <h3>Sign up now</h3>
+                <p>Fill in the form below to get instant access:</p>
+            </div>
+            <div class="form-top-right">
+                <i class="fa fa-pencil"></i>
+            </div>
+        </div>
+        <div class="form-bottom">
+            <form role="form" action="/signup" method="post" class="registration-form">
+                <div class="form-group">
+                    <label class="sr-only" for="form-full-name">Full name</label>
+                    <input type="text" name="signupFullName" placeholder="Full name..." class="form-full-name form-control" id="form-full-name">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="form-username">Username</label>
+                    <input type="text" name="signupUsername" placeholder="Username..." class="form-username form-control" id="form-username">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="form-password">Password</label>
+                    <input type="password" name="signupPassword" placeholder="Password..." class="form-password form-control" id="form-password">
+                </div>
+                <button type="submit" class="btn">Sign me up!</button>
+            </form>
+            <br>
+            <!-- message to user -->
+            <% if (typeof errorMessage !== "undefined") { %>
+                <div class="alert alert-danger error" role="alert"><strong><%= errorMessage %></strong></div>
+            <% } %> 
+            
+        </div>
+    </div>
+</div>
+<br><br><br>

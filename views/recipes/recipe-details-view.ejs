@@ -1,0 +1,125 @@
+<div class="container">           
+    <div class="panel panel-info">
+    <div class="panel-heading"><a href="my-recipes">Back to My Recipe List</a></div>
+    <div class="panel-body">
+        <!-- row 1 : title and photo -->
+        <div class="row">
+            <div class="col-xs-6 col-sm-5 col-md-5 col-lg5">
+                <h2><%= recipe.title %></h2>
+                <div class="media">
+                <div class="media-left">
+                <% if (typeof recipeCreator.photoAddress === 'undefined') { %>
+                    <figure>
+                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/30x30">
+                    </figure>
+                <% } else { %>
+                    <figure>
+                        <img class="img-circle img-responsive" alt="" src="<%= recipeCreator.photoAddress %>" width="30px;">
+                    </figure>
+                <% } %>     
+                <!-- <img class="img-circle img-responsive" alt="" src="<%= recipeCreator.photoAddress %>" width="30px;"> -->
+                        
+                </div>
+                <div class="media-body">
+                    <h5 class="media-heading">Recipe By: <%= recipe.creator %></h5>
+                    <hr>
+                    <h5 class="media-heading">Recipe Description:</h5>
+                    <p><%= recipe.description %> </p>
+                    <div class="recipe-raiting">                            
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 made-it">                                    
+                            <p>386 made it</p>                                   
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 review-it">
+                            <p>186 reviews</p>   
+                        </div>
+                    </div>                     
+                </div>                       
+                </div>
+            </div>                    
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <img src="<%= recipe.photoAddres %>" alt="<%= recipe.title %>">
+            </div>                    
+        </div>
+        <!-- row 2 : actions -->
+        <% if (typeof user === 'undefined') { %>
+        <div class="row"> 
+            <br>                   
+            <nav class="navbar details-actions">
+                <div class="container-fluid content-actions">
+                <ul class="nav actions">                                
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <li><a href="#" ><img src="/img/svg/save-icon.svg" alt="save it" width="35px">  Save</a></li>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <li><a href="#"><img src="/img/svg/made-it-icon.svg" alt="made it" width="35px">  I made it</a></li>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <li><a href="#"><img src="/img/svg/rated-icon.svg" alt="rate it" width="35px">  Rate it</a></li>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <li><a href="#"><img src="/img/svg/share-icon.svg" alt="share it" width="35px">  Share</a></li>
+                    </div>
+                </ul>
+                </div>
+            </nav>                                       
+        </div>
+        <% } %> 
+        <br>
+        <!-- row 3 : preparation-info -->
+        <div class="row">                                       
+            <nav class="navbar details-preparation">
+                <div class="container-fluid preparation-info">
+                <ul class="nav preparation">                                
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <li><a id="actions" href="#"><%= recipe.minutes %> Minutes  <img src="/img/svg/minutes-recipe.svg" alt="made it" width="30px"></a></li>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <li><a id="actions" href="#"><%= recipe.calories %> Calories  <img src="/img/svg/calories-recipe.svg" alt="rate it" width="30px"></a></li>
+                    </div>
+                </ul>
+                </div>
+            </nav>                                       
+        </div>
+        <br>
+        <!-- row 4 : ingredients -->
+        <div class="row">                
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">  
+            <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Ingredients</h2>
+                        </div>
+                        <div class="panel-body">
+                            <% for (let index = 0; index < recipe.ingredients.length; index++ ) { %>
+                                <div class="list-group">                        
+                                    <span class="list-group-item"><%= recipe.ingredients[index] %></span>
+                                </div>
+                            <% } %>
+                        </div>
+                  </div>    
+            </div>
+            <!-- row 4 : instructions -->
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Instructions</h2>
+                    </div>
+                    <div class="panel-body">
+                        <% for (let index = 0; index < recipe.instructions.length; index++ ) { %>
+                            <div class="list-group">                        
+                                <span class="list-group-item"><%= recipe.instructions[index] %></span>
+                            </div>
+                        <% } %>
+                    </div>                    
+            </div>             
+            </div>                            
+        </div>  
+        <% if (typeof user !== 'undefined') { %>
+        <div class="panel-footer">        
+            <form method="post" action="<%= recipe._id %>/delete">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>        
+        </div>  
+        <% } %>                 
+    </div>
+    </div>            
+</div>        

@@ -1,0 +1,62 @@
+<main>
+    <!--Main layout-->
+    <div class="container">
+
+        <!--Page heading-->
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="h1-responsive">
+                    <small class="text-muted">Category: Fancy dessert</small>
+                </h1>
+            </div>
+            <!--
+            <div class="col-md-3">
+                <form class="search-list">
+                        <input class="form-control" type="text" placeholder="Search Recipe ..."> 
+                </form>
+            </div>
+            -->
+        </div>
+        <!--/.Page heading-->
+        <hr>
+        <% if (recipes.length === 0) { %>
+            <div class="alert alert-warning" role="alert">Sorry, but we don't have recipes to show in this category yet.</div>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+        <% } else { %>
+            <!--First row-->
+            <% recipes.forEach( (oneRecipe) => { %>
+                <section>
+                <div class="container py-3">                
+                    <div class="row ">
+                        <div class="panel panel-info">
+                            <div class="panel-heading"><%= oneRecipe.title %>
+                            <br>
+                            <p class="card-text">Recipe by: <%= oneRecipe.creator %> </p>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-4">
+                                    <img src="<%= oneRecipe.photoAddres %>" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-md-8 px-3">
+                                    <div class="card-block px-3">
+                                    <p class="card-text">Description: <%= oneRecipe.description %> </p>
+                                    <ol class="breadcrumb">
+                                        <li class="active">Ingredients:  <span class="badge badge-info">6</span></li>
+                                        <li class="active">Calories:  <span class="badge badge-warning"><%= oneRecipe.calories %></span></li>
+                                        <li class="active">Minutes:  <span class="badge badge-inverse"><%= oneRecipe.minutes %></span></li>
+                                    </ol>
+                                    </div>
+                                    <a href="/recipes/<%= oneRecipe._id %>">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                    </div>
+                </section>
+            <% }) %>
+            <% if (recipes.length < 2) { %>
+                <br><br><br><br>
+            <% } %>
+        <% } %>
+</main>
+

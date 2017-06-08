@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- title -->
+    <title>The Fork - Recipe Inspiration</title>
+
+     <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+     <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/css/mdb.css" rel="stylesheet">
+
+    <!-- Bootstrap-star-rating npm package styles -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/js/mdb.js"></script>
+       
+    <!-- My JS  -->
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+    <header>
+        <!--Navbar-->
+        <nav class="navbar navbar-toggleable-md navbar-dark">
+            <div class="container">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <strong>The Fork</strong>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav1">
+                    <ul class="navbar-nav mr-auto">
+                      <% if (typeof user !== 'undefined') { %>  
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+                        </li>
+                      <% } %>          
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <% if (typeof user === 'undefined') { %>
+                        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                      <% } else { %>   
+                        <li><a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Hello, <%= user.fullName %>  <img src="/img/png/user-account-menu.png" alt="acount" width="30"></a>
+                             <ul class="dropdown-menu">
+                                <li><a href="/recipes/new">Add Recipe</a></li>
+                                <li><a href="/recipes/my-recipes">My Recipes</a></li>
+                                <!-- <li><a href="#">My Recipes Reviews</a></li> -->
+                                <li><a href="/user/my-profile">My Profile</a></li>                                
+                                <li><a href="/logout">Log Out</a></li>
+                            </ul>
+                        </li>
+                      <% } %>  
+                    </ul>    
+                </div>
+            </div>
+        </nav>
+        <!--/.Navbar-->
+    </header>
+
+    <%- body %>
+
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only">
+        <!--Footer links-->
+        <div class="container-fluid">
+            <div class="row">
+                <!--First column-->
+                <div class="col-md-3 offset-lg-1 hidden-lg-down">
+                    <h4 class="title">About this site</h4>
+                    <p>Discover, save, and share your favorite recipes when join The Fork.</p>
+                    <p>For home cooks hungry for easy family meals: Find thousands of tested recipes, menus, cooking shortcuts, dinner ideas, chef tips, and more ..</p>
+                </div>
+                <!--/.First column-->
+                <hr class="hidden-md-up">
+                <!--Second column-->
+                <div class="col-lg-2 col-md-4 offset-lg-1">
+                    <h4 class="title">Cooking books</h4>
+                    <ul>
+                        <li>
+                            <a href="#!">"Cooking A-Z" by Mike Kalynsky</a>
+                        </li>
+                        <li>
+                            <a href="#!">"No More Heat" by Joe Doe</a>
+                        </li>
+                        <li>
+                            <a href="#!">"Sea Food for Starters" by Alex Well</a>
+                        </li>
+                        <li>
+                            <a href="#!">"Easy Calories" by Samantha Bens</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
+                <hr class="hidden-md-up">
+                <!--Third column-->
+                <div class="col-lg-2 col-md-4">
+                    <h4 class="title">Popular recipes</h4>
+                    <ul>
+                        <li>
+                            <a href="#!">Beff steak with almonds</a>
+                        </li>
+                        <li>
+                            <a href="#!">Cordon Bleu</a>
+                        </li>
+                        <li>
+                            <a href="#!">Vegan pancakes</a>
+                        </li>
+                        <li>
+                            <a href="#!">Turkey stuffed sandwiches</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Third column-->
+                <hr class="hidden-md-up">
+                <!--Fourth column-->
+                <div class="col-lg-2 col-md-4">
+                    <h4 class="title">connect with us</h4>
+                    <ul>
+                        <li>
+                            <a href="#!"> <img src="/img/icons/facebook_icon_black.png" alt="Facebook" style="width:50px; height:50px;">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="#!"> <img src="/img/icons/youtube_icon_black.png" alt="Youtube" style="width:50px; height:50px;"> Youtube</a>
+                        </li>
+                        <li>
+                            <a href="#!"> <img src="/img/icons/instagram_icon_black.png" alt="Instagram" style="width:50px; height:50px;"> Instagram</a>
+                        </li>
+                        <li>
+                            <a href="#!"> <img src="/img/icons/google_icon_black.png" alt="Instagram" style="width:50px; height:50px;"> Google</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.Fourth column-->
+            </div>
+        </div>
+        <!--/.Footer links-->
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="containter-fluid">
+                © 2017 Copyright: <a href="#"> OGM </a>
+            </div>
+        </div>
+        <!--/.Copyright-->
+    </footer>
+    <!--/.Footer-->
+</body>
+
+</html>

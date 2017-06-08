@@ -1,0 +1,138 @@
+<main>
+    <!--Main layout-->
+    <div class="container">
+        <!-- Panel Start -->
+        <div class="panel panel-success" id="panel">
+            <div class="panel-heading"><h2>Recipe Information Form</h2></div>
+            <div class="panel-body">
+                <form method="post" action="/recipes/new" enctype="multipart/form-data">    
+                <!-- First Row -->
+                <div class="row">  
+                    <div class="col-md-4 choose-file">
+                        <!-- Upload Image -->
+                        <h4 style="color:#3c763d;">Select image from your computer</h4>
+                        <input type="file" class="filestyle" name="recipePhoto">
+                    </div>
+                    <div class="col-md-8">                        
+                        <div class="form-group">
+                            <label for="title-recipe-input" style="color:#3c763d;">Recipe Title</label>
+                            <input type="text" id="title-recipe-input" name="recipeTitle" aria-describedby="titleHelp" >
+                            <small id="titleHelp" class="form-text text-muted">Enter the best that describe your recipe.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="description-recipe-input" style="color:#3c763d;">Recipe Description</label>
+                            <textarea class="form-control" id="description-recipe-input" name="recipeDescription" rows="10" placeholder="A brief description of your recipe"></textarea>
+                        </div>                        
+                    </div>
+                </div>  <!-- First Row End -->
+                <hr>
+                <!-- Second Row -->
+                <div class="row">
+                    <div class="row ingredient-header">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div id="ingredient-plus-label" class="panel-heading"><h2 style="color:#3c763d; margin-top:50px;">Add Ingredients</h2></div>  
+                            <input id="ingredient-plus-button" type="image" src="/img/png/plus_green_button.png" alt="Submit" width="30">
+                            <input type="text" id="ingredient-amount" name="ingredientAmount" aria-describedby="titleHelp" placeholder="Enter number ...">
+                        </div>  
+                        <br>                          
+                    </div>
+                    
+
+                    <!-- *****From here we add new ingredients after the green plus button is cliecked*****-->
+
+                </div> <!-- Second Row End -->
+                <hr>
+                <!-- Third Row -->
+                <div class="row">
+                    <div class="row instruction-header">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div id="instruction-plus-label" class="panel-heading"><h2 style="color:#3c763d; margin-top:50px;">Add Instructions</h2></div>  
+                            <input id="instruction-plus-button" type="image" src="/img/png/plus_green_button.png" alt="Submit" width="30">
+                            <input type="text" id="instruction-amount" name="instructionAmount" aria-describedby="titleHelp" placeholder="Enter number ...">
+                        </div>                            
+                    </div>  
+                    
+                    <!-- *****From here we add new instructions after the green plus button is cliecked*****-->
+        
+                </div> <!-- Third Row End -->
+                <hr>
+                <!-- Four Row -->
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> 
+                        <div class="panel-heading"><h2 style="color:#3c763d;">Categories:</h2></div>                             
+                        <!-- List group -->
+                        <ul class="list-group">
+                        <li class="list-group-item">
+                            Breakfast and Brunch
+                            <div class="material-switch pull-right">
+                                <input id="category-breakfast-brunch" name="category-breakfast-brunch" type="checkbox"/>
+                                <label for="category-breakfast-brunch" class="label-default"></label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            Lunch and Dinner
+                            <div class="material-switch pull-right">
+                                <input id="category-lunch-dinner" name="category-lunch-dinner" type="checkbox"/>
+                                <label for="category-lunch-dinner" class="label-primary"></label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            Fancy Dessert
+                            <div class="material-switch pull-right">
+                                <input id="category-fancy-dessert" name="category-fancy-dessert" type="checkbox"/>
+                                <label for="category-fancy-dessert" class="label-success"></label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            Light Ideas
+                            <div class="material-switch pull-right">
+                                <input id="category-light-ideas" name="category-light-ideas" type="checkbox"/>
+                                <label for="category-light-ideas" class="label-info"></label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            Appetizer And Snacks
+                            <div class="material-switch pull-right">
+                                <input id="category-appetizers-snacks" name="category-appetizers-snacks" type="checkbox"/>
+                                <label for="category-appetizers-snacks" class="label-warning"></label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            Season Salads
+                            <div class="material-switch pull-right">
+                                <input id="category-season-salads" name="category-season-salads" type="checkbox"/>
+                                <label for="category-season-salads" class="label-danger"></label>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>  
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="panel-heading"><h2 style="color:#3c763d;">Calories:</h2></div> 
+                    <div id="slider-calories"></div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">   
+                    <div class="panel-heading"><h2 style="color:#3c763d;">Minutes Cooked:</h2></div> 
+                    <div id="slider-minutes"></div> 
+                    </div>                               
+                </div> <!-- Four Row End -->
+                <hr>   
+                <!-- Fifth Row -->                  
+                <div class="row">                     
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <button type="submit" class="btn btn-success btn-lg btn-block btn-recipe-form">Save Recipe</button>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                </div><!-- Fifth Row End --> 
+                </form>                               
+            </div> <!-- Panel Body End -->
+        </div> <!-- Panel End -->           
+    </div><!-- end container -->                
+</main>    
+<!-- Style and javascript -->
+<!-- sliders -->
+<link href="https://cdn.jsdelivr.net/jquery.roundslider/1.3/roundslider.min.css" rel="stylesheet" />
+<!-- sliders -->
+<script src="https://cdn.jsdelivr.net/jquery.roundslider/1.3/roundslider.min.js"></script>
+<script src="/js/javascript.js"></script>
+
