@@ -6,12 +6,14 @@ You can see it here! https://the-fork-recipe-inspiration.herokuapp.com/
 ## Notable
 
 https://github.com/nickborbe
+
 https://github.com/nizaroni
 
 ## Technical Requirements
 
 1.	Include sign-up / sign-in / sign-out functionality, with encrypted passwords & an authorization flow.
-2.	Have 3 MongoDB models, one representing a User of the application, and two that represent the main idea of the functionality of the app. The are  related to each other.
+2.	Have 3 MongoDB models, one representing a User of the application, and two that represent the main idea of the 
+    functionality of the app. The are  related to each other.
 3.	Have full CRUD routes for their resources (models).
 4.	Utilize Mongoose to create models and add the proper validations.
 5.	Have a Responsive Design, starting mobile-first and then build up for larger screen sizes.
